@@ -1,0 +1,46 @@
+PowerShell (VS Code default)
+
+Run these three lines in a new PowerShell terminal:
+
+$env:Path = "C:\php81;" + $env:Path
+$env:PHPRC = "C:\php81"             # tell PHP where php.ini lives
+$env:PHP_INI_SCAN_DIR = ""          # stop scanning any other INI dirs
+
+
+Verify:
+
+where.exe php
+php -v
+php -m | findstr /i pdo_mysql
+
+
+You should see C:\php81\php.exe, and pdo_mysql listed with no startup warnings.
+
+Command Prompt (cmd.exe)
+
+Run these in a new cmd window:
+
+set "PATH=C:\php81;%PATH%"
+set "PHPRC=C:\php81"
+set "PHP_INI_SCAN_DIR="
+where php
+php -v
+php -m | find /I "pdo_mysql"
+
+Use the forced PHP for Laravel
+
+Now run everything with this PHP:
+
+php artisan config:clear
+php artisan cache:clear
+php artisan optimize:clear
+
+php artisan serve --host=127.0.0.1 --port=8000
+
+Try both login identifiers
+
+Some panels use username instead of email.
+
+Email: admin@gmail.com / Password: Admin@123!
+
+Username: admin / Password: Admin@123!
